@@ -32,11 +32,18 @@ for( let i = 0; i < 10; i+=2){
 let n = "person"
 console.log(n.length)
 
-let a = "adotham123xD"
+// output the string in array
+let a = "adotham123xD143"
 for (let i = 0; i < a.length; i++){
     console.log(a[i])
 }
 
 for (let i = a.length - 1; i >= 0; i--){
     console.log(a[i])
+}
+
+for (let i = 0; i < a.length; i++){
+    if(a[i] === "1" || a[i] === "2"){
+        console.log(a[i])
+    }
 }

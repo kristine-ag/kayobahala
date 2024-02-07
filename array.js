@@ -15,3 +15,19 @@ for (let i=0; i<z.length; i++){
 }
 
 
+let a = [1, 2, "appl3", true, [8,9], 4, 5, 6, 7]
+
+// Function to check if a variable is an integer
+function isInteger(value) {
+    return typeof value === 'number' && Number.isInteger(value);
+}
+ // add a variable to the array
+a.push("rel pangit")
+
+// Filter the array to only include integers
+let integers = a.filter(element => isInteger(element));
+
+console.log(integers);
+console.log(a)
+
+

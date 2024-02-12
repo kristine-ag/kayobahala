@@ -4,6 +4,7 @@ const express = require ("express")
 const app = express ()
 
 const port = 8000
+console.log(app)
 app.listen (port, () => {
     console.log (`Server connected to port  ${port}`)
 })

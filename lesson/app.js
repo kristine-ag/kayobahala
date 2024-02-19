@@ -6,7 +6,7 @@
 
 
 
-const {students, hello} = require('./module/mymodule')
+const {students, hello} = require('./mymodule')
 
 hello()
 

@@ -1,12 +1,12 @@
-Lessons sa IT Elective 4 - Frameworks
+<h1> Lessons sa IT Elective 4 - Frameworks </h1>
 
-cmd: npm install
-cmd: npm install express
-cmd: npm install ejs
+<p> cmd: npm install </p>
+<p> cmd: npm install express </p>
+<p> cmd: npm install ejs </p>
 
-cmd: "npm install nodemon"
-package.json in script: ""serve": "nodemon index.js""
-to run: npm run serve
+<p> cmd: "npm install nodemon" </p>
+<p> package.json in script: ""serve": "nodemon index.js"" </p>
+<p> to run: npm run serve </p>
 
 
 

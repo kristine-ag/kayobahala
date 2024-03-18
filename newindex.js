@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+
+app.set('view engine', 'ejs')
+
 const port = 8000;
 
 app.use((req, res, next) => {
@@ -11,12 +14,14 @@ app.use((req, res, next) => {
 })
 
 app.get('/', function (req, res) {
-//   res.send('Hello World')
-    res.sendFile(`./views/index.html`, {root: __dirname})
+    // res.send('Hello World')
+    // res.sendFile(`./views/index.html`, {root: __dirname})
+    res.render('index', {heading: "We're gonna find it!"})
 })
 
 app.get('/about', function (req, res) {
-        res.sendFile(`./views/about.html`, {root: __dirname})
+    // res.sendFile(`./views/about.html`, {root: __dirname})
+    res.render('about')
 })
 
 app.get('/home', (req, res) => {
@@ -28,7 +33,8 @@ app.get('/aboutus', (req, res) => {
 })
 
 app.use((req, res) => {
-    res.status(404).sendFile(`./views/error.html`, {root: __dirname})
+    // res.status(404).sendFile(`./views/error.html`, {root: __dirname})
+    res.render('error')
 })
 
 app.listen(port, () => {

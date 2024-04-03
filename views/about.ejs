@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%- include ('../partials/head');  %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
 </head>
 <body>
+    <% console.log(studentData) %> 
+
     <h1>More than anything</h1>
+
+    <h2> by: <%= studentData[0].name %></h2>
 
     <p>yOu...</p>
     <p>Didn't know that wHEn T^T</p>
@@ -19,6 +24,23 @@
 
 
     <button><a href="./">Home</a></button>
+
+    <% for (let i = 0; i < studentData.length; i++){ %>
+        <h2>
+            <%= studentData[i]. name %> 
+            <%= studentData[i]. age %> 
+            <%= studentData[i]. course %> 
+        </h2>
+        <p> <%= helloFunc(studentData[i]. name) %> </p>
+    <% } %>
+
+    <% studentData.forEach(function(student){ %>
+        <h2>
+            <%= student. name %> 
+            <%= student. age %> 
+            <%= student. course %> 
+        </h2>
+    <% }); %>
     
 </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head');  %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davao Weather</title>
+
+    <style>
+        .flag{
+            margin-top: 50px;
+            border: 3px solid grey;
+            border-radius: 50px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <center>
+            <h1>Kahimtang sa Wabad</h1>
+            <div>
+                <img class = "flag" src="https://cdn-icons-png.flaticon.com/512/197/197561.png">
+                <h4><%= weatherdvo[0].location.name %></h4>
+                <h3><%= weatherdvo[1].current.temperature %> Celcius</h3>  
+            </div>
+
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Weather</th>
+                    <th scope="col">Icon</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-primary">
+                        <th scope="row">Today, <%= weatherdvo[1].current.shortday %></th>
+                        <td><%= weatherdvo[1].current.date %></td>
+                        <td><%= weatherdvo[1].current.skytext %></td>
+                        <td><img src="<%= weatherdvo[1].current.imageUrl %>"></td>
+                    </tr>
+
+                    <tr class="table-primary">
+                        <th scope="row">Tomorrow, <%= weatherdvo[1].forecast[1].shortday %></th>
+                        <td><%= weatherdvo[1].forecast[1].date %></td>
+                        <td><%= weatherdvo[1].forecast[1].skytextday %></td>
+                        <td><img src="<%= weatherdvo[1].current.imageUrl %>"></td>
+                    </tr>
+
+                    <tr class="table-primary">
+                        <th scope="row"><%= weatherdvo[1].forecast[2].day %></th>
+                        <td><%= weatherdvo[1].forecast[2].date %></td>
+                        <td><%= weatherdvo[1].forecast[2].skytextday %></td>
+                        <td><img src="<%= weatherdvo[1].current.imageUrl %>"></td>
+                    </tr>
+
+                </tbody>
+              </table>
+        </center>
+    </main>
+    
+
+
+    
+</body>
+</html>

@@ -6,7 +6,7 @@ const students = [
     {name: fullName[2], age : 20, course: 'CS'},]
 
 const hello = function(name = "Lucas"){
-    console.log(`Hello ${name}`)
+    return (`Hello ${name}`)
 }
 
 module.exports = {fullName, students, hello}

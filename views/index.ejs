@@ -1,71 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include ('../partials/head');  %>
+
+<head>
+    <%- include ('../partials/head'); %>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HOME</title>
 
-        
-    </head>
+
+</head>
 
 
-    <body>
-    
+<body>
+
     <header>
-        <% let name = "Stardenburdenhardenbart" %>
-        <h2> <%= name %></h2>
-        <h1>Stardenburdenhardenbart</h1>
-        <button><a href="./about">ABOUT</a></button>
-        <p></p>
+        <% let name="Stardenburdenhardenbart" %>
+            <h2>
+                <%= name %>
+            </h2>
+            <h1>Stardenburdenhardenbart</h1>
+            <button><a href="./about">ABOUT</a></button>
+            <p></p>
     </header>
 
+
     <div class="container">
-        <h1> <%= heading %> </h1>
-        <p>Here we are</p>
-        <p>Far from home</p>
-        <p>A little bit hungry</p>
-        <p>And a little alone</p>
-        <p>But it's alright</p>
-        <p>Guess it's alright</p>
-        <p>Cuz in this room</p>
-        <p>There might be friends</p>
-        <p>Can't see yet</p>
-        <p>How the story ends</p>
-        <p>But it's alright</p>
-        <p>Guess it's alright</p>
-        <p>We can start anew</p>
-        <p>Can't go back so we gonna go on</p>
-        <p>We'll stick together staying strong</p>
-        <p>There's a diamond castle in my mind</p>
-        <p>And someday soon</p>
-        <p>We're gonna find it</p>
-        <p>We're gonna find it</p>
-        <p>We're gonna find it</p>
-        <p>Somehow things are looking up</p>
-        <p>Feeling like we've changed our luck</p>
-        <p>I can see light, in a new light</p>
-        <p>Can't stay long </p>
-        <p>Passing through</p>
-        <p>Don't know where we're going to</p>
-        <p>But it's alright</p>
-        <p>Guess we just might</p>
-        <p>Find ourselves anew</p>
-        <p>Can't go back so we gonna go on</p>
-        <p>We'll stick together staying strong</p>
-        <p>There's a diamond castle in my mind</p>
-        <p>And someday soon</p>
-        <p>We're gonna find it</p>
-        <p>We're gonna find it</p>
-        <p>We're gonna find a perfect place for us to be</p>
-        
+        <h1>
+            <%= heading %>
+        </h1>
+        <%= itemData %>
+            <% for(let i=0; i < itemData.length; i++) { %>
+                <h3>
+                    <% itemData[i].data()['name'] %>
+                </h3>
+            <% } %>
+
+
+            <!-- array -->
+            <% for(let i=0; i < itemData.length; i++) { %>
+                <h3>
+                    <% itemData[i].data()['name'] %>
+                </h3>
+
+                <% for(let j=0; j < itemData[i].data()['position'].length; j++) { %>
+                    <h5>
+                        <%= itemData[i].data()['position'][j] %>
+                    </h5>
+                <% } %>
+            <% } %>
+
+
+                    <p>Here we are</p>
+                    <p>Far from home</p>
+                    <p>A little bit hungry</p>
+                    <p>And a little alone</p>
+                    <p>But it's alright</p>
+                    <p>Guess it's alright</p>
+                    <p>Cuz in this room</p>
+                    <p>There might be friends</p>
+                    <p>Can't see yet</p>
+                    <p>How the story ends</p>
+                    <p>But it's alright</p>
+                    <p>Guess it's alright</p>
+                    <p>We can start anew</p>
+                    <p>Can't go back so we gonna go on</p>
+                    <p>We'll stick together staying strong</p>
+                    <p>There's a diamond castle in my mind</p>
+                    <p>And someday soon</p>
+                    <p>We're gonna find it</p>
+                    <p>We're gonna find it</p>
+                    <p>We're gonna find it</p>
+                    <p>Somehow things are looking up</p>
+                    <p>Feeling like we've changed our luck</p>
+                    <p>I can see light, in a new light</p>
+                    <p>Can't stay long </p>
+                    <p>Passing through</p>
+                    <p>Don't know where we're going to</p>
+                    <p>But it's alright</p>
+                    <p>Guess we just might</p>
+                    <p>Find ourselves anew</p>
+                    <p>Can't go back so we gonna go on</p>
+                    <p>We'll stick together staying strong</p>
+                    <p>There's a diamond castle in my mind</p>
+                    <p>And someday soon</p>
+                    <p>We're gonna find it</p>
+                    <p>We're gonna find it</p>
+                    <p>We're gonna find a perfect place for us to be</p>
+
 
     </div>
-    
+
 
     <footer>
         <p>&copy; kapoynako.copyright.</p>
     </footer>
-    
-    </body>
+
+</body>
+
 </html>

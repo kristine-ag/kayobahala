@@ -9,6 +9,16 @@ const port = 8000;
 
 const weather = require('weather-js')
 
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./kayobahala-de725-firebase-adminsdk-waxnb-50009c95c9.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+const db = admin.firestore()
+const memberColl = db.collection('unis')
+
 
 app.get('/davao', function (req, res) {
     weather.find({search: 'Davao, PH', degreeType: 'C'}, function(err, result) {
@@ -36,10 +46,15 @@ app.use((req, res, next) => {
     next()
 })
 
-app.get('/', function (req, res) {
-    // res.send('Hello World')
-    // res.sendFile(`./views/index.html`, {root: __dirname})
-    res.render('index', {heading: "We're gonna find it!"})
+app.get('/', async function (req, res) {
+    const items = await memberColl.get()
+    console.log(items.docs.length)
+    let data = {
+        itemData: items.docs,
+        heading: "UnIS Members",
+        song: "superwoman"
+    }
+    res.render('index', data)
 })
 
 app.get('/about', function (req, res) {

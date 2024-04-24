@@ -1,13 +1,12 @@
 const express = require('express')
 const app = express()
-
 const { students, hello } = require('./lesson/mymodule')
-
 app.set('view engine', 'ejs')
-
 const port = 8000;
-
 const weather = require('weather-js')
+const cors = require('cors');
+
+
 
 var admin = require("firebase-admin");
 
@@ -18,7 +17,15 @@ admin.initializeApp({
 });
 const db = admin.firestore()
 const memberColl = db.collection('unis')
+const studentColl = db.collection('student')
 
+app.use(
+    cors({
+        origin:true,
+        credentials:true,
+        optionsSuccessStatus:200
+    })
+)
 
 app.get('/davao', function (req, res) {
     weather.find({search: 'Davao, PH', degreeType: 'C'}, function(err, result) {
@@ -47,14 +54,19 @@ app.use((req, res, next) => {
 })
 
 app.get('/', async function (req, res) {
-    const items = await memberColl.get()
-    console.log(items.docs.length)
-    let data = {
-        itemData: items.docs,
-        heading: "UnIS Members",
-        song: "superwoman"
-    }
-    res.render('index', data)
+
+    const studentSnapshot = await studentColl.get();
+    const studentList = studentSnapshot.docs.map(doc => doc.data());
+    res.json(studentList);
+
+    // const items = await memberColl.get()
+    // console.log(items.docs.length)
+    // let data = {
+    //     itemData: items.docs,
+    //     heading: "UnIS Members",
+    //     song: "superwoman"
+    // }
+    // res.render('index', data)
 })
 
 app.get('/about', function (req, res) {

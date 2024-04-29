@@ -27,6 +27,25 @@ app.use(
     })
 )
 
+app.use(express.json)
+
+app.post('/addstudent', async function (req, res){
+    const {name, age, course, subjects} = req.body
+    try{
+        const docRef = await studentColl.add({
+            name,
+            age,
+            course,
+            subjects
+        })
+        console.log(docRef.id)
+    }
+    catch (error){
+        console.error('Error adding student:', error);
+        res.status(500).json({error : 'Failed to add student'})
+    }
+})
+
 app.get('/davao', function (req, res) {
     weather.find({search: 'Davao, PH', degreeType: 'C'}, function(err, result) {
         if(err) console.log(err);
